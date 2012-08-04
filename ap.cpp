@@ -19,7 +19,6 @@ http://www.fsf.org/licensing/licenses
 >>> END OF LICENSE >>>
 *************************************************************************/
 
-#include "stdafx.h"
 #include "ap.h"
 
 const double ap::machineepsilon = 5E-16;
