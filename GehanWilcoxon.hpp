@@ -63,7 +63,7 @@ public:
   {
   }
   
-  void addDatum(Datum &datum)
+  void addDatum(const Datum &datum)
   {
     _data.push_back(datum);
   }
