@@ -27,7 +27,7 @@
 #include <algorithm>
 #include <iostream>
 
-#include "normaldistr.h"
+#include <normaldistr.h>
 
 using std::cin;
 using std::cout;
