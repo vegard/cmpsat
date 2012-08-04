@@ -3,8 +3,15 @@ cmpsat - Tool for Comparison of SAT Solvers
 
 This program is intended for comparison of two SAT solvers. It implements
 the statistical methodology proposed by Mladen Nikolic (Faculty of
-Mathematics, University of Belgrade, Serbia.) It can be obtained from
-http://www.matf.bg.ac.rs/~nikolic/solvercomparison/.
+Mathematics, University of Belgrade, Serbia.)
+
+The original program can be obtained from:
+
+	http://www.matf.bg.ac.rs/~nikolic/solvercomparison/
+
+The latest version of this fork can be obtained from:
+
+	http://github.com/vegard/cmpsat
 
 This program uses ALGLIB (http://www.alglib.net).
 
@@ -22,15 +29,20 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
-A copy of the GNU General Public License is available at
-http://www.fsf.org/licensing/licenses
+A copy of the GNU General Public License is available at:
+
+	http://www.fsf.org/licensing/licenses
 
 
 Compilation
 ===========
 
+Make sure you have ALGLIB installed. On Debian, you need the libalglib-dev
+package.
+
 To compile cmpsat, just type:
-./compile
+
+	$ bash make.sh
 
 
 Usage
@@ -38,7 +50,7 @@ Usage
 
 To use cmpsat, type
 
-./cmpsat data_file1 data_file2 num_used [bootstrapps]
+	$ ./cmpsat data_file1 data_file2 num_used [bootstrapps]
 
 num_used is the number of runtimes that will actually be used in the
 comparison. It has to be less than the number of runtimes recorded for the
@@ -52,7 +64,7 @@ For sample data provided with cmpsat, one can run the comparison using 15
 out of 50 available observations with jackknife estimate of the variance by
 typing
 
-./cmpsat sample1 sample2 15
+	$ ./cmpsat examples/sample1 examples/sample2 15
 
 Note: In this version the number of runtimes per formula should be the same
 for both solvers. There is no theoretical reason for this. It is just the
@@ -69,27 +81,30 @@ value 1 if the runtime is exact, or 0 if it is censored. File containing 5
 observations for each of 2 formulae with used cutoff time of 1200 could look 
 like this
 
-5
-533.23 1 1031.97 1 1200 0 1200 0 131.89 1
-981.37 1 1200 0 1200 0 1200 0 387.82 1
+	5
+	533.23 1 1031.97 1 1200 0 1200 0 131.89 1
+	981.37 1 1200 0 1200 0 1200 0 387.82 1
 
 
 Output
 ======
 
-cmpsat outputs values of several statistics.
+cmpsat outputs values of several statistics:
 
-n is the number of formulae that are not discarded in the comparison.
-z is the difference between observed and the expected test statistic
-expressed in standard deviations.
-r is the point biserial correlation estimate.
-p is the p value for the test.
-s is the estimate of the probability that the first solver solves the
-formula in less time than the second.
+ - n is the number of formulae that are not discarded in the comparison.
+ - z is the difference between observed and the expected test statistic
+   expressed in standard deviations.
+ - r is the point biserial correlation estimate.
+ - p is the p value for the test.
+ - pi is the estimate of the probability that the first solver solves the
+   formula in less time than the second.
 
 
 Contact
 =======
 
-For all questions or suggestions concerning cmpsat contact Mladen Nikolic at
-nikolic@matf.bg.ac.rs.
+This version of cmpsat was modified by Vegard Nossum
+<vegard.nossum@gmail.com>.
+
+For all questions or suggestions concerning the original version of cmpsat
+contact Mladen Nikolic <nikolic@matf.bg.ac.rs>.
