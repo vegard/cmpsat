@@ -1,1 +1,0 @@
-g++ -o cmpsat cmpsat.cpp normaldistr.cpp ap.cpp
